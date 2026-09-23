@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthBridge – Smart Healthcare & Emergency Response Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Auth Gate: unauthenticated visitors are sent to login & register page first -->
+  <script>
+    (function() {
+      try {
+        var user = localStorage.getItem('hb_user');
+        if (!user) {
+          window.location.replace('login.html');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Full-Screen Loading Screen -->
+  <div id="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-logo-wrapper">
+        <div class="pulse-ring"></div>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);">
+          <path d="M12 6v12M6 12h12"/>
+          <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" stroke-width="1.8" stroke="var(--secondary)"/>
+        </svg>
+      </div>
+      <h1 class="loading-title">Health<span class="highlight">Bridge</span></h1>
+      <p class="loading-tagline">Connecting you to better healthcare</p>
+      <div class="loading-spinner" style="margin: 1.5rem auto 0;"></div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 6v12M6 12h12"/>
+          </svg>
+        </div>
+        Health<span class="highlight">Bridge</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="hospitals.html" class="nav-link">Hospitals</a></li>
+        <li><a href="specialists.html" class="nav-link">Specialists</a></li>
+        <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+        <li><a href="emergency.html" class="nav-link emergency-link">🚨 Emergency</a></li>
+        <li><a href="ambulance.html" class="nav-link" style="color:var(--emergency);">🚑 Ambulance</a></li>
+        <li><a href="patient-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li>
+          <a href="notifications.html" class="nav-badge-link" title="Notifications">
+            🔔
+            <span class="badge-count" id="notification-badge" style="display:none;">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-section">
+          <!-- Populated by main.js -->
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span>🛡️</span> Certified Smart Healthcare Network
+        </div>
+        <h1 class="hero-title">
+          Your Health. Your Care. <br>
+          <span class="highlight">One Connected Platform.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Find accredited hospitals, discover leading specialists, book confirmed appointments with real-time slot locking, and get instantaneous emergency assistance when you need it most.
+        </p>
+
+        <div class="hero-actions">
+          <a href="hospitals.html" class="btn btn-primary btn-lg">
+            🏥 Find a Hospital
+          </a>
+          <a href="specialists.html" class="btn btn-secondary btn-lg">
+            🩺 Find a Doctor
+          </a>
+          <a href="hospitals.html" class="btn btn-secondary btn-lg">
+            📅 Book Appointment
+          </a>
+          <a href="emergency.html" class="btn btn-emergency btn-lg">
+            🚨 Emergency Help
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <h4>5+</h4>
+            <p>Tertiary Hospitals</p>
+          </div>
+          <div class="hero-stat-item">
+            <h4>10+</h4>
+            <p>Specialist Doctors</p>
+          </div>
+          <div class="hero-stat-item">
+            <h4>24/7</h4>
+            <p>Emergency Dispatch</p>
+          </div>
+          <div class="hero-stat-item">
+            <h4>100%</h4>
+            <p>Live Slot Sync</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-banner">
+          <div style="background:var(--primary-subtle); border-radius:var(--radius-md); padding:1.5rem; margin-bottom:1.5rem; text-align:center;">
+            <div style="font-size:3rem; margin-bottom:0.5rem;">🏥🩺🚑</div>
+            <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-dark);">HealthBridge Emergency & Clinic Care</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;">Integrated patient triage, slot locking and ambulance telemetry</p>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1rem; background:var(--bg-surface); border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+              <span style="font-weight:600; font-size:0.9rem;">Apollo Multispeciality</span>
+              <span class="card-badge badge-available">Emergency Ready</span>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1rem; background:var(--bg-surface); border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+              <span style="font-weight:600; font-size:0.9rem;">Ambulance Response Unit</span>
+              <span class="card-badge badge-emergency">Avg 6-8 Mins</span>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1rem; background:var(--bg-surface); border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+              <span style="font-weight:600; font-size:0.9rem;">Specialist Consultations</span>
+              <span class="card-badge badge-specialty">10+ Medical Depts</span>
+            </div>
+          </div>
+
+          <div class="floating-pill top-right">
+            <span>💚</span> Real-time Health Link
+          </div>
+          <div class="floating-pill bottom-left">
+            <span>🚨</span> SOS One-Touch Alert
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Instant Services</div>
+        <h2 class="section-title">Healthcare Made Seamless</h2>
+        <p class="section-subtitle">Every option opens a dedicated healthcare service tailored for patients, families, and emergency situations.</p>
+      </div>
+
+      <div class="quick-cards-grid">
+        <div class="quick-card" onclick="window.location.href='hospitals.html'" style="cursor:pointer;">
+          <div class="quick-card-icon">🏥</div>
+          <h3 class="quick-card-title">Find Hospital</h3>
+          <p class="quick-card-desc">Explore accredited hospitals, opening timings, and available intensive facilities.</p>
+          <span class="quick-card-link">Explore Hospitals →</span>
+        </div>
+
+        <div class="quick-card" onclick="window.location.href='specialists.html'" style="cursor:pointer;">
+          <div class="quick-card-icon">🩺</div>
+          <h3 class="quick-card-title">Find Specialist</h3>
+          <p class="quick-card-desc">Consult verified cardiologists, neurologists, orthopedics, and pediatricians.</p>
+          <span class="quick-card-link">View Specialties →</span>
+        </div>
+
+        <div class="quick-card" onclick="window.location.href='hospitals.html'" style="cursor:pointer;">
+          <div class="quick-card-icon">📅</div>
+          <h3 class="quick-card-title">Book Appointment</h3>
+          <p class="quick-card-desc">Dedicated booking flow with live database slot availability and instant confirmation.</p>
+          <span class="quick-card-link">Start Booking →</span>
+        </div>
+
+        <div class="quick-card emergency-card" onclick="window.location.href='emergency.html'" style="cursor:pointer;">
+          <div class="quick-card-icon">🚨</div>
+          <h3 class="quick-card-title">Emergency Center</h3>
+          <p class="quick-card-desc">Rapid triage for snake bites, chest pains, burns, and critical conditions with live tracking.</p>
+          <span class="quick-card-link">Open Emergency Center →</span>
+        </div>
+
+        <div class="quick-card emergency-card" onclick="window.location.href='ambulance.html'" style="cursor:pointer;">
+          <div class="quick-card-icon">🚑</div>
+          <h3 class="quick-card-title">Ambulance Assistance</h3>
+          <p class="quick-card-desc">Instant vehicle dispatch for road accidents and urgent casualty transport.</p>
+          <span class="quick-card-link">Request Ambulance →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Helpline Callout Banner -->
+  <section style="background:var(--emergency-subtle); border-top:1px solid var(--emergency-border); border-bottom:1px solid var(--emergency-border); padding:3rem 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <span class="card-badge badge-emergency" style="font-size:0.85rem; margin-bottom:0.5rem;">24/7 Rapid Response</span>
+        <h3 style="font-size:1.8rem; font-weight:800; color:var(--emergency-dark);">Facing a Medical Emergency?</h3>
+        <p style="color:#7f1d1d; font-size:1rem; margin-top:0.25rem;">
+          Our emergency center coordinates immediately with nearest trauma hospitals and dispatch drivers.
+        </p>
+      </div>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="emergency.html" class="btn btn-emergency btn-lg">
+          🚨 Open Emergency Center
+        </a>
+        <a href="ambulance.html" class="btn btn-outline-emergency btn-lg">
+          🚑 Dispatch Ambulance
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 6v12M6 12h12"/>
+              </svg>
+            </div>
+            Health<span class="highlight">Bridge</span>
+          </a>
+          <p>
+            HealthBridge is a full-stack modern healthcare and emergency response platform connecting patients with hospitals, specialists, and lifesaving response units.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Healthcare Services</h5>
+          <ul class="footer-links">
+            <li><a href="hospitals.html">Hospitals Directory</a></li>
+            <li><a href="specialists.html">Medical Specialists</a></li>
+            <li><a href="doctors.html">Doctor Catalog</a></li>
+            <li><a href="hospitals.html">Appointment Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Emergency Assistance</h5>
+          <ul class="footer-links">
+            <li><a href="emergency.html">Emergency Center</a></li>
+            <li><a href="ambulance.html">Accident & Ambulance</a></li>
+            <li><a href="emergency-request.html?type=Snake%20Bite">Snake Bite Response</a></li>
+            <li><a href="emergency-request.html?type=Severe%20Chest%20Pain">Chest Pain Protocol</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Portals & Dashboards</h5>
+          <ul class="footer-links">
+            <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+            <li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="login.html">Sign In / Register</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 HealthBridge Smart Healthcare Platform. All rights reserved.</p>
+        <p>Built with Spring Boot, Java 17, MySQL, HTML5, CSS3, &amp; Vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

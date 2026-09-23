@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In &amp; Register – HealthBridge Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation with Direct Emergency Access -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="login.html" class="brand-logo">
+        <div class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v12M6 12h12"/></svg></div>
+        Health<span class="highlight">Bridge</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" style="margin-left:auto; display:flex; gap:1rem; align-items:center;">
+        <li><a href="emergency.html" class="nav-link emergency-link" style="font-weight:700;">🚨 Emergency (24x7)</a></li>
+        <li><a href="ambulance.html" class="nav-link" style="color:var(--emergency); font-weight:700;">🚑 Ambulance</a></li>
+      </ul>
+
+      <div class="nav-actions" style="margin-left:1.5rem;">
+        <a href="tel:108" class="btn btn-emergency btn-sm" style="display:inline-flex; align-items:center; gap:0.4rem;">
+          <span>📞</span> Emergency: <strong>108</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container" style="margin-top:2.5rem; margin-bottom:5rem; max-width:540px;">
+
+    <!-- DIRECT EMERGENCY ACCESS BANNER (NO LOGIN REQUIRED) -->
+    <section class="emergency-login-card" aria-label="Emergency Access Information">
+      <div class="emergency-card-header">
+        <div class="emergency-badge-pulse">
+          <span>🚨</span> Critical Medical Emergency?
+        </div>
+        <span class="emergency-tag-no-login">No Login Required</span>
+      </div>
+      <p class="emergency-card-desc">
+        If you or someone nearby requires immediate trauma care, emergency triage, or ambulance dispatch, access urgent help right now:
+      </p>
+      <div class="emergency-actions-grid">
+        <a href="emergency.html" class="btn btn-emergency">
+          🚨 Emergency SOS
+        </a>
+        <a href="ambulance.html" class="btn btn-emergency" style="background:#dc2626;">
+          🚑 Ambulance
+        </a>
+        <a href="tel:108" class="btn btn-outline-emergency" style="background:#ffffff; font-weight:800;">
+          📞 Dial 108
+        </a>
+      </div>
+    </section>
+
+    <!-- PORTAL ENTRY & AUTHENTICATION CARD -->
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.25rem 2rem; box-shadow:var(--shadow-md);">
+      
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <div class="logo-icon" style="margin:0 auto 0.75rem; width:48px; height:48px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v12M6 12h12"/></svg>
+        </div>
+        <h2 style="font-size:1.65rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">HealthBridge Portal</h2>
+        <p style="color:var(--text-muted); font-size:0.88rem;">Sign in or register to enter and access all healthcare services</p>
+      </div>
+
+      <!-- Segmented Tab Switcher: Sign In vs. Register -->
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab-btn active" id="tab-btn-login" onclick="switchAuthTab('login')" role="tab" aria-selected="true">
+          <span>🔑</span> Sign In
+        </button>
+        <button type="button" class="auth-tab-btn" id="tab-btn-register" onclick="switchAuthTab('register')" role="tab" aria-selected="false">
+          <span>📝</span> Create Account
+        </button>
+      </div>
+
+      <!-- TAB PANE 1: SIGN IN -->
+      <div id="login-tab-pane" class="auth-tab-pane active" role="tabpanel">
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="name@domain.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <label class="form-label" for="login-password" style="margin-bottom:0;">Password</label>
+              <a href="forgot-password.html" style="font-size:0.85rem; color:var(--primary); font-weight:600;">Forgot Password?</a>
+            </div>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.5rem;">
+            Sign In to Enter Platform →
+          </button>
+        </form>
+
+        <div style="text-align:center; margin-top:1.5rem; font-size:0.88rem; color:var(--text-muted);">
+          Don't have an account? <a href="javascript:void(0)" onclick="switchAuthTab('register')" style="color:var(--primary); font-weight:700;">Create Free Account</a>
+        </div>
+      </div>
+
+      <!-- TAB PANE 2: REGISTER -->
+      <div id="register-tab-pane" class="auth-tab-pane" role="tabpanel">
+        
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.25rem;">
+          Join HealthBridge for scheduled doctor visits, live slot tracking &amp; records.
+        </p>
+
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name *</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="e.g. John Doe" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Phone Number *</label>
+            <input type="tel" id="reg-phone" class="form-control" placeholder="e.g. +91 98765 43210" required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Create Password (Min. 6 Characters) *</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="••••••••" minlength="6" required autocomplete="new-password">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-role">Account Type</label>
+            <select id="reg-role" class="form-control">
+              <option value="PATIENT">Patient Account</option>
+              <option value="DOCTOR">Doctor / Practitioner</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.5rem;">
+            Register &amp; Enter Platform →
+          </button>
+        </form>
+
+        <div style="text-align:center; margin-top:1.5rem; font-size:0.88rem; color:var(--text-muted);">
+          Already have an account? <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="color:var(--primary); font-weight:700;">Sign In Here</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border:none; padding:0; justify-content:center;">
+      <p>&copy; 2026 HealthBridge Smart Healthcare Platform. 24/7 Emergency Service Active.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

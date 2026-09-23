@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Details – HealthBridge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v12M6 12h12"/></svg></div>
+        Health<span class="highlight">Bridge</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="hospitals.html" class="nav-link">Hospitals</a></li>
+        <li><a href="specialists.html" class="nav-link">Specialists</a></li>
+        <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+        <li><a href="emergency.html" class="nav-link emergency-link">🚨 Emergency</a></li>
+        <li><a href="ambulance.html" class="nav-link" style="color:var(--emergency);">🚑 Ambulance</a></li>
+        <li><a href="patient-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li>
+          <a href="notifications.html" class="nav-badge-link" title="Notifications">
+            🔔<span class="badge-count" id="notification-badge" style="display:none;">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-section"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="doctors.html">Doctors</a>
+        <span class="separator">/</span>
+        <a href="javascript:history.back()">Select Slot</a>
+        <span class="separator">/</span>
+        <span>Patient Details</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h1>Step 6: Patient Information</h1>
+          <p>Please enter the patient's consultation details to finalize booking and lock the time slot.</p>
+        </div>
+        <a href="javascript:history.back()" class="btn btn-secondary btn-sm">← Change Slot</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container" style="margin-bottom:4rem;">
+    <div style="display:grid; grid-template-columns:1fr 340px; gap:2rem; align-items:flex-start;" class="patient-details-grid">
+      
+      <!-- Patient Information Form -->
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2.5rem; box-shadow:var(--shadow-sm);">
+        <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-dark); margin-bottom:1.5rem;">👤 Patient Information Form</h3>
+        
+        <form id="patient-details-form">
+          <div class="form-group">
+            <label class="form-label" for="patient-name">Patient Full Name *</label>
+            <input type="text" id="patient-name" class="form-control" placeholder="e.g. John Doe" required>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+            <div class="form-group">
+              <label class="form-label" for="patient-age">Age (Years) *</label>
+              <input type="number" id="patient-age" class="form-control" placeholder="e.g. 32" min="1" max="120" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="patient-phone">Phone Number *</label>
+              <input type="tel" id="patient-phone" class="form-control" placeholder="e.g. +91 98765 11223" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visit-reason">Reason for Visit / Primary Symptoms</label>
+            <textarea id="visit-reason" class="form-control" rows="3" placeholder="Briefly describe health symptoms, medical history or consultation purpose..."></textarea>
+            <p class="form-text">This will be shared privately with the doctor prior to your consultation.</p>
+          </div>
+
+          <div style="background:var(--primary-subtle); border:1px solid var(--primary-border); border-radius:var(--radius-sm); padding:1rem; margin-bottom:1.75rem; font-size:0.875rem; color:var(--primary-dark);">
+            🔒 <strong>Instant Slot Locking:</strong> Upon clicking Confirm, this time slot will be immediately reserved in the HealthBridge database.
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            Confirm &amp; Lock Appointment →
+          </button>
+        </form>
+      </div>
+
+      <!-- Booking Summary Sidebar -->
+      <div id="booking-summary-sidebar">
+        <!-- Populated dynamically by appointments.js -->
+        <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.5rem; text-align:center;">
+          <div class="loading-spinner" style="margin:0 auto 0.5rem;"></div>
+          <p style="color:var(--text-muted); font-size:0.85rem;">Loading booking summary...</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border:none; padding:0;">
+      <p>&copy; 2026 HealthBridge Smart Healthcare Platform.</p>
+      <a href="hospitals.html" style="color:var(--primary); font-weight:600;">Restart Booking Flow</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/appointments.js"></script>
+</body>
+</html>

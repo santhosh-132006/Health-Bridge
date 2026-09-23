@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Details – HealthBridge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v12M6 12h12"/></svg></div>
+        Health<span class="highlight">Bridge</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="hospitals.html" class="nav-link active">Hospitals</a></li>
+        <li><a href="specialists.html" class="nav-link">Specialists</a></li>
+        <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+        <li><a href="emergency.html" class="nav-link emergency-link">🚨 Emergency</a></li>
+        <li><a href="ambulance.html" class="nav-link" style="color:var(--emergency);">🚑 Ambulance</a></li>
+        <li><a href="patient-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li>
+          <a href="notifications.html" class="nav-badge-link" title="Notifications">
+            🔔<span class="badge-count" id="notification-badge" style="display:none;">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-auth-section"></div>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header / Breadcrumb -->
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="hospitals.html">Hospitals</a>
+        <span class="separator">/</span>
+        <span>Hospital Profile</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h1>Hospital Details & Facilities</h1>
+          <p>Review comprehensive healthcare infrastructure, timings, and available specialists.</p>
+        </div>
+        <a href="hospitals.html" class="btn btn-secondary btn-sm">← Back to Hospitals</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container" style="margin-bottom:4rem;">
+    <div id="hospital-details-container">
+      <div style="text-align:center; padding:4rem;">
+        <div class="loading-spinner" style="margin:0 auto 1rem;"></div>
+        <p style="color:var(--text-muted);">Loading hospital profile and departments...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border:none; padding:0;">
+      <p>&copy; 2026 HealthBridge Smart Healthcare Platform.</p>
+      <a href="hospitals.html" style="color:var(--primary); font-weight:600;">Browse Other Hospitals</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/hospitals.js"></script>
+</body>
+</html>
