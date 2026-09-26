@@ -3,9 +3,11 @@
  * Core Utilities & Navigation Script (main.js)
  */
 
-const API_BASE = (window.location.port === '8080')
-  ? `${window.location.origin}/api`
-  : 'http://localhost:8080/api';
+const API_BASE = window.HEALTHBRIDGE_API_URL || (
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? (window.location.port === '8080' ? `${window.location.origin}/api` : 'http://localhost:8080/api')
+    : `${window.location.origin}/api`
+);
 
 // Public pages that do NOT require login (emergency is always accessible!)
 const PUBLIC_PAGES = [

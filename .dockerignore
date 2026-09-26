@@ -1,0 +1,8 @@
+**/.git
+**/.github
+**/.vscode
+**/.idea
+**/target
+**/*.log
+.DS_Store
+Thumbs.db
